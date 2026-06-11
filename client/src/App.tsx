@@ -128,7 +128,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-8 pt-32 pb-20 overflow-hidden">
+      <section className="relative px-8 pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
         {/* Background Video */}
         <video 
           autoPlay 
@@ -142,7 +142,7 @@ function App() {
         </video>
         
         {/* Dark Overlay for readability */}
-        <div className="absolute top-0 left-0 w-full h-full bg-slate-900/30 -z-10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-50 -z-10" />
         
         {/* Gradient Orbs (keep as before) */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
