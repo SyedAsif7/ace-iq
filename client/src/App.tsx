@@ -57,12 +57,12 @@ function App() {
   ];
 
   const teamMembers = [
-    { name: "Prof. Bais P. G.", role: "SPOC", designation: "Assistant Professor", college: "SSIEMS, Parbhani" },
-    { name: "Syed Asif Syed Gaffar", role: "Project Leader", designation: "Student", college: "SSIEMS, Parbhani" },
-    { name: "Karan Sadashiv Ingole", role: "Research Analyst", designation: "Student", college: "SSIEMS, Parbhani" },
-    { name: "Shravan Sandip Gaikwad", role: "Developer", designation: "Student", college: "SSIEMS, Parbhani" },
-    { name: "Arpita Mukund Jondhale", role: "Tester / Debugger", designation: "Student", college: "SSIEMS, Parbhani" },
-    { name: "Gayatri Shriram Bharose", role: "Presentation Lead", designation: "Student", college: "SSIEMS, Parbhani" },
+    { name: "Prof. Bais P. G.", role: "SPOC", designation: "Assistant Professor", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
+    { name: "Syed Asif Syed Gaffar", role: "Project Leader", designation: "Student", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
+    { name: "Karan Sadashiv Ingole", role: "Research Analyst", designation: "Student", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
+    { name: "Shravan Sandip Gaikwad", role: "Developer", designation: "Student", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
+    { name: "Arpita Mukund Jondhale", role: "Tester / Debugger", designation: "Student", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
+    { name: "Gayatri Shriram Bharose", role: "Presentation Lead", designation: "Student", college: "Narnarayan Shastri Institute of Technology, Ahmedabad" },
   ];
 
   const auditGaps = [
@@ -175,7 +175,7 @@ function App() {
             <h4 className="text-2xl font-black mb-4">EdTech Solutions</h4>
             <div className="h-1 w-12 bg-indigo-500 mx-auto rounded-full mb-4" />
             <p className="text-sm text-slate-300 font-medium leading-relaxed">
-              International Level Hackathon 360° - 4.O <br /> Round 1 Presentation
+              ECLearnix 360° 4.0 Innovation Challenge <br /> Round 2 Presentation
             </p>
           </div>
           <div className="md:w-2/3">
@@ -499,7 +499,7 @@ function App() {
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
             <div>
               <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em] mb-4">The Innovators</h2>
-              <h3 className="text-6xl font-black tracking-tighter">Team Hackit</h3>
+              <h3 className="text-6xl font-black tracking-tighter">Team Alpha's</h3>
             </div>
             <div className="text-right">
               <div className="text-indigo-400 font-black text-lg">Domain 3</div>
@@ -563,7 +563,7 @@ function App() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">Team Hackit</h4>
+                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">Team Alpha's</h4>
                 <ul className="text-sm font-bold text-slate-600 space-y-2">
                   <li className="hover:text-indigo-600 cursor-pointer transition-colors">About Us</li>
                   <li className="hover:text-indigo-600 cursor-pointer transition-colors">Hackathon 360</li>
@@ -573,7 +573,7 @@ function App() {
             </div>
           </div>
           <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">© 2026 Team Hackit | SSIEMS, Parbhani</p>
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">© 2026 Team Alpha's | Narnarayan Shastri Institute of Technology, Ahmedabad</p>
             <div className="flex items-center gap-6">
               <Github className="w-5 h-5 text-slate-300 hover:text-slate-900 cursor-pointer transition-colors" />
               <div className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">

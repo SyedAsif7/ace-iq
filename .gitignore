@@ -2,15 +2,34 @@
 node_modules/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.dll
+*.egg-info/
+dist/
+build/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
 # Environment
 .env
 .env.local
+.env.*.local
 
 # Build
 dist/
 build/
+
+# Vite
+*.timestamp-*.mjs
+
+# OS
+.DS_Store
+Thumbs.db
