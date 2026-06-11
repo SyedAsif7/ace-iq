@@ -1,0 +1,15 @@
+{
+  "name": "ace-iq",
+  "version": "2.0.0",
+  "description": "AI-Powered College Event Intelligence",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd server && python main.py\" \"cd client && npm run dev\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && python main.py",
+    "install:all": "cd server && pip install -r requirements.txt && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
