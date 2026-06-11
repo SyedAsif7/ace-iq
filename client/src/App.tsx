@@ -135,29 +135,31 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative px-8 pt-32 pb-32 overflow-hidden min-h-screen flex items-center">
-        {/* Background Video */}
+        {/* Background Video - Lowest z-index */}
         <video 
           autoPlay 
           loop 
           muted 
           playsInline 
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover -z-20"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         >
           <source src="/background_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* Gradient Overlay for perfect readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-50 -z-10" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/50 to-slate-50 z-10" />
         
-        {/* Subtle Gradient Orbs for depth */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-25 pointer-events-none">
+        {/* Subtle Gradient Orbs */}
+        <div className="absolute inset-0 z-20 opacity-25 pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-400 rounded-full blur-[120px]" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400 rounded-full blur-[150px]" />
         </div>
-
-        <div className="max-w-6xl mx-auto text-center">
+        
+        {/* Hero Content on top of everything */}
+        <div className="relative z-30 w-full">
+          <div className="max-w-6xl mx-auto text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -206,6 +208,7 @@ function App() {
               <ArrowRight className="w-5 h-5" />
             </Button>
           </motion.div>
+          </div>
         </div>
       </section>
 
