@@ -106,48 +106,55 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       {/* Navbar */}
-      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 px-8 py-4">
+      <nav className="sticky top-0 z-40 bg-white/10 backdrop-blur-xl border-b border-white/20 px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-indigo-600 p-2 rounded-xl group-hover:rotate-12 transition-transform">
+            <div className="bg-indigo-600 p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg shadow-indigo-500/20">
               <Zap className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-black tracking-tighter text-slate-900">ACE IQ</span>
+            <span className="text-2xl font-black tracking-tighter text-white drop-shadow-md">ACE IQ</span>
           </div>
-          <div className="hidden md:flex items-center gap-10 text-sm font-bold text-slate-500">
-            <a href="#mission" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Mission</a>
-            <a href="#audit" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Audit</a>
-            <a href="#features" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Pillars</a>
-            <a href="#impact" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Impact</a>
-            <a href="#roadmap" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Roadmap</a>
-            <a href="#architecture" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Stack</a>
-            <a href="#team" className="hover:text-indigo-600 transition-colors text-[10px] uppercase tracking-widest">Team</a>
-            <Button size="sm" onClick={() => setShowQuiz(true)}>Demo</Button>
+          <div className="hidden md:flex items-center gap-10 text-sm font-bold text-white/80">
+            <a href="#mission" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Mission</a>
+            <a href="#audit" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Audit</a>
+            <a href="#features" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Pillars</a>
+            <a href="#impact" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Impact</a>
+            <a href="#roadmap" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Roadmap</a>
+            <a href="#architecture" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Stack</a>
+            <a href="#team" className="hover:text-white transition-colors text-[10px] uppercase tracking-widest">Team</a>
+            <Button 
+              size="sm" 
+              onClick={() => setShowQuiz(true)} 
+              className="bg-white text-indigo-700 hover:bg-indigo-50"
+            >
+              Demo
+            </Button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-8 pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative px-8 pt-32 pb-32 overflow-hidden min-h-screen flex items-center">
         {/* Background Video */}
         <video 
           autoPlay 
           loop 
           muted 
           playsInline 
-          className="absolute top-0 left-0 w-full h-full object-cover -z-20"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover -z-20"
         >
           <source src="/background_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* Dark Overlay for readability */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-50 -z-10" />
+        {/* Gradient Overlay for perfect readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-50 -z-10" />
         
-        {/* Gradient Orbs (keep as before) */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-300 rounded-full blur-[120px]" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-300 rounded-full blur-[150px]" />
+        {/* Subtle Gradient Orbs for depth */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-25 pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-400 rounded-full blur-[120px]" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400 rounded-full blur-[150px]" />
         </div>
 
         <div className="max-w-6xl mx-auto text-center">
