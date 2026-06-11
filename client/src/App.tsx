@@ -129,6 +129,22 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative px-8 pt-32 pb-20 overflow-hidden">
+        {/* Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute top-0 left-0 w-full h-full object-cover -z-20"
+        >
+          <source src="/background_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark Overlay for readability */}
+        <div className="absolute top-0 left-0 w-full h-full bg-slate-900/30 -z-10" />
+        
+        {/* Gradient Orbs (keep as before) */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
           <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-300 rounded-full blur-[120px]" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-300 rounded-full blur-[150px]" />
@@ -138,7 +154,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-xs font-black mb-8 border border-indigo-100 uppercase tracking-widest"
+            className="inline-flex items-center gap-2 bg-white/90 text-indigo-700 px-4 py-2 rounded-full text-xs font-black mb-8 border border-white/30 uppercase tracking-widest backdrop-blur-sm"
           >
             <Sparkles className="w-4 h-4" />
             <span>India's First AI-Driven Event Intelligence</span>
@@ -148,17 +164,17 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black mb-8 tracking-tighter text-slate-900 leading-[0.9]"
+            className="text-6xl md:text-8xl font-black mb-8 tracking-tighter text-white leading-[0.9] drop-shadow-lg"
           >
             The Future of <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-300% animate-gradient">College Events.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 bg-300% animate-gradient">College Events.</span>
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed"
+            className="text-xl text-slate-100 mb-12 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-md"
           >
             ACE IQ is the autonomous intelligence layer for AllCollegeEvent.com, 
             eliminating cold-starts and delivering hyper-personalized discovery for every student.
