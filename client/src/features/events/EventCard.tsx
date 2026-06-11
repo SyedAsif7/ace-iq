@@ -9,6 +9,7 @@ interface EventCardProps {
 }
 
 const EventCard = ({ event }: EventCardProps) => {
+  const score = event.matchScore ?? event.match_score ?? 0;
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -21,12 +22,12 @@ const EventCard = ({ event }: EventCardProps) => {
           </div>
           <div className={cn(
             "px-3 py-1.5 rounded-full text-[10px] font-bold flex items-center gap-1 border animate-pulse",
-            event.matchScore > 90 
+            score > 90 
               ? "bg-emerald-50 text-emerald-700 border-emerald-100" 
               : "bg-indigo-50 text-indigo-700 border-indigo-100"
           )}>
             <Sparkles className="w-3 h-3" />
-            {event.matchScore}% Match
+            {score}% Match
           </div>
         </div>
         

@@ -2,10 +2,20 @@ import axios from 'axios';
 import { UserProfile, Event, ChatMessage, Nudge } from '../types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'http://localhost:8000/api',
 });
 
 export const aiService = {
+  getAllEvents: async () => {
+    const response = await api.get('/ai/events');
+    return response.data;
+  },
+
+  getMatchedEvents: async (profile: UserProfile) => {
+    const response = await api.post('/ai/events/matched', profile);
+    return response.data;
+  },
+
   getMatchScore: async (profile: UserProfile, event: Partial<Event>) => {
     const response = await api.post('/ai/match', { user_profile: profile, event });
     return response.data.match_score;

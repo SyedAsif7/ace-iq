@@ -5,18 +5,15 @@ import OnboardingQuiz from './features/onboarding/OnboardingQuiz';
 import EventCard from './features/events/EventCard';
 import ZuzuChat from './features/chat/ZuzuChat';
 import { UserProfile, Event } from './types';
+import { aiService } from './services/api';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [activePillar, setActivePillar] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-
-  const mockEvents: Event[] = [
-    { title: "Inter-College Hackathon", description: "A 24-hour coding challenge for tech enthusiasts to build innovative solutions.", location: "Mumbai", date: "June 15, 2026", matchScore: 98 },
-    { title: "Robotics Workshop", description: "Hands-on experience with Arduino, sensors, and autonomous systems.", location: "Pune", date: "June 20, 2026", matchScore: 85 },
-    { title: "Music Night 2026", description: "Annual celebration featuring live performances from top university bands.", location: "Mumbai", date: "July 02, 2026", matchScore: 72 },
-  ];
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const pillars = [
     {
@@ -78,9 +75,31 @@ function App() {
      { phase: "PHASE 3", title: "POST-LAUNCH", items: ["Activate 5 Predictive Nudges", "Refine Match Score (Collaborative)", "Advanced Registration Funnel Analysis"] },
    ];
 
-  const handleQuizComplete = (profile: UserProfile) => {
+  // Fetch all events on load
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const data = await aiService.getAllEvents();
+        setEvents(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      }
+    };
+    fetchEvents();
+  }, []);
+
+  const handleQuizComplete = async (profile: UserProfile) => {
     setUserProfile(profile);
     setShowQuiz(false);
+    setLoading(true);
+    try {
+      const matchedEvents = await aiService.getMatchedEvents(profile);
+      setEvents(matchedEvents);
+    } catch (error) {
+      console.error("Failed to get matched events:", error);
+    } finally {
+      setLoading(false);
+    }
     window.scrollTo({ top: document.getElementById('discovery')?.offsetTop, behavior: 'smooth' });
   };
 
@@ -325,11 +344,17 @@ function App() {
                     </Button>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {mockEvents.map((event, idx) => (
-                      <EventCard key={idx} event={event} />
-                    ))}
-                  </div>
+                  {loading ? (
+                    <div className="flex items-center justify-center h-64">
+                      <div className="text-slate-500 font-bold">Loading matched events...</div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      {events.map((event, idx) => (
+                        <EventCard key={event.id || idx} event={event} />
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               )}
             </div>

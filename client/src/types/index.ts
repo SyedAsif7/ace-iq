@@ -12,7 +12,8 @@ export interface Event {
   category?: string;
   location: string;
   date: string;
-  matchScore: number;
+  match_score?: number;
+  matchScore?: number; // For compatibility
 }
 
 export interface ChatMessage {
