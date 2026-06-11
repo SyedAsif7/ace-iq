@@ -104,8 +104,26 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      {/* Navbar */}
+    <div className="relative min-h-screen w-full text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
+      {/* Full-Screen Background Video */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        preload="auto"
+        className="fixed inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/background_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Dark Overlay for Readability */}
+      <div className="fixed inset-0 bg-slate-900/30 z-10" />
+      
+      {/* Main Content Container */}
+      <div className="relative z-20">
+        {/* Navbar */}
       <nav className="sticky top-0 z-40 bg-white/10 backdrop-blur-xl border-b border-white/20 px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 group cursor-pointer">
@@ -210,7 +228,7 @@ function App() {
       </section>
 
       {/* Mission/Abstract Section */}
-      <section id="mission" className="px-8 py-20 bg-slate-900 text-white overflow-hidden relative">
+      <section id="mission" className="px-8 py-20 text-white overflow-hidden relative">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="bg-indigo-600/20 p-8 rounded-[40px] border border-indigo-500/20 backdrop-blur-3xl md:w-1/3 text-center">
             <div className="text-indigo-400 font-black uppercase tracking-[0.2em] text-xs mb-2">Domain 3</div>
@@ -233,7 +251,7 @@ function App() {
       </section>
 
       {/* Business Impact Section */}
-      <section id="impact" className="px-8 py-32 bg-indigo-600 text-white overflow-hidden relative">
+      <section id="impact" className="px-8 py-32 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2" />
         <div className="max-w-6xl mx-auto relative">
           <div className="flex flex-col md:flex-row items-center gap-16">
@@ -277,7 +295,7 @@ function App() {
       </section>
 
       {/* Live Audit Section */}
-      <section id="audit" className="px-8 py-20 bg-white border-y border-slate-100">
+      <section id="audit" className="px-8 py-20 border-y border-white/20">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1">
@@ -291,9 +309,9 @@ function App() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {auditGaps.map((gap, i) => (
-                  <Card key={i} className="p-4 border-slate-50 bg-slate-50/50">
+                  <Card key={i} className="p-4 border-white/20 bg-white/80 backdrop-blur-xl">
                     <h4 className="font-bold text-sm mb-1 text-slate-800">{gap.title}</h4>
-                    <p className="text-xs text-slate-500 leading-normal">{gap.desc}</p>
+                    <p className="text-xs text-slate-600 leading-normal">{gap.desc}</p>
                   </Card>
                 ))}
               </div>
@@ -336,7 +354,7 @@ function App() {
       {/* Discovery Section */}
       <AnimatePresence>
         {(showQuiz || userProfile) && (
-          <section id="discovery" className="px-8 py-20 bg-slate-900 text-white overflow-hidden relative">
+          <section id="discovery" className="px-8 py-20 text-white overflow-hidden relative">
             <div className="max-w-6xl mx-auto">
               {showQuiz ? (
                 <div className="flex flex-col items-center">
@@ -386,7 +404,7 @@ function App() {
       </AnimatePresence>
 
       {/* Pillars Section */}
-      <section id="features" className="px-8 py-32 bg-white">
+      <section id="features" className="px-8 py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-sm font-black text-indigo-600 uppercase tracking-[0.3em] mb-4">Core Intelligence</h2>
@@ -400,10 +418,10 @@ function App() {
                   key={index}
                   onClick={() => setActivePillar(index)}
                   className={cn(
-                    "w-full p-6 rounded-2xl transition-all text-left flex items-center gap-4 group",
+                    "w-full p-6 rounded-2xl transition-all text-left flex items-center gap-4 group backdrop-blur-xl",
                     activePillar === index 
-                      ? 'bg-slate-900 text-white shadow-2xl shadow-indigo-200' 
-                      : 'hover:bg-slate-50 text-slate-500'
+                      ? 'bg-white/80 text-slate-900 shadow-2xl shadow-indigo-500/20 border border-indigo-500/30' 
+                      : 'hover:bg-white/30 text-slate-700 bg-white/10 border border-white/20'
                   )}
                 >
                   <div className={cn(
@@ -417,7 +435,7 @@ function App() {
               ))}
             </div>
 
-            <Card className="lg:col-span-8 p-12 bg-slate-50 border-slate-200 min-h-[400px] flex flex-col justify-center">
+            <Card className="lg:col-span-8 p-12 bg-white/80 backdrop-blur-xl border-white/30 min-h-[400px] flex flex-col justify-center">
               <motion.div
                 key={activePillar}
                 initial={{ opacity: 0, x: 20 }}
@@ -452,7 +470,7 @@ function App() {
       </section>
 
       {/* Roadmap Section */}
-      <section id="roadmap" className="px-8 py-32 bg-slate-50 overflow-hidden">
+      <section id="roadmap" className="px-8 py-32 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-sm font-black text-indigo-600 uppercase tracking-[0.3em] mb-4">Implementation</h2>
@@ -460,7 +478,7 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-indigo-100 -translate-y-1/2 hidden md:block -z-10" />
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-white/30 -translate-y-1/2 hidden md:block -z-10" />
             {roadmap.map((phase, i) => (
               <motion.div 
                 key={i}
@@ -468,7 +486,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Card className="p-8 h-full border-slate-200 relative bg-white group hover:border-indigo-600 transition-colors">
+                <Card className="p-8 h-full border-white/30 relative bg-white/80 backdrop-blur-xl group hover:border-indigo-600 transition-colors">
                   <div className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full absolute -top-3 left-8 uppercase tracking-widest shadow-lg">
                     {phase.phase}
                   </div>
@@ -489,30 +507,30 @@ function App() {
       </section>
 
       {/* Architecture Section */}
-      <section id="architecture" className="px-8 py-32 bg-white relative overflow-hidden">
+      <section id="architecture" className="px-8 py-32 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-center">
             <div className="lg:w-1/2">
               <h2 className="text-sm font-black text-indigo-600 uppercase tracking-[0.3em] mb-4">System Architecture</h2>
               <h3 className="text-5xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">Built for <br />Scalability.</h3>
-              <p className="text-lg text-slate-500 font-medium mb-12">
+              <p className="text-lg text-slate-700 font-medium mb-12">
                 ACE IQ uses a modular 4-layer architecture, combining Python-based AI microservices with a high-performance React frontend.
               </p>
               
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Core Stack</div>
+                  <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Core Stack</div>
                   <div className="flex flex-wrap gap-2">
                     {['FastAPI', 'React', 'Firebase', 'Redis'].map(tech => (
-                      <span key={tech} className="bg-slate-100 text-slate-700 px-3 py-1 rounded-lg text-xs font-bold border border-slate-200">{tech}</span>
+                      <span key={tech} className="bg-white/70 text-slate-700 px-3 py-1 rounded-lg text-xs font-bold border border-white/30 backdrop-blur-md">{tech}</span>
                     ))}
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">AI Tools</div>
+                  <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest">AI Tools</div>
                   <div className="flex flex-wrap gap-2">
                     {['spaCy', 'Tesseract', 'Scikit-learn', 'TensorFlow'].map(tech => (
-                      <span key={tech} className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-lg text-xs font-bold border border-indigo-100">{tech}</span>
+                      <span key={tech} className="bg-indigo-50/80 text-indigo-700 px-3 py-1 rounded-lg text-xs font-bold border border-indigo-100/50 backdrop-blur-md">{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -526,13 +544,13 @@ function App() {
                 { label: "Application Layer", desc: "React Web App, Zuzu 2.0 UI", icon: <Terminal className="w-5 h-5" /> },
                 { label: "Output Layer", desc: "Personalised Feeds, Engagement Nudges", icon: <Sparkles className="w-5 h-5" /> },
               ].map((layer, i) => (
-                <Card key={i} className="p-6 border-slate-100 flex items-center gap-6 group hover:shadow-xl transition-all">
+                <Card key={i} className="p-6 border-white/30 bg-white/80 backdrop-blur-xl flex items-center gap-6 group hover:shadow-xl transition-all">
                   <div className="bg-indigo-600 text-white p-3 rounded-2xl group-hover:scale-110 transition-transform shadow-lg">
                     {layer.icon}
                   </div>
                   <div>
                     <h4 className="font-black text-slate-900">{layer.label}</h4>
-                    <p className="text-sm text-slate-500 font-medium">{layer.desc}</p>
+                    <p className="text-sm text-slate-600 font-medium">{layer.desc}</p>
                   </div>
                 </Card>
               ))}
@@ -542,7 +560,7 @@ function App() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="px-8 py-32 bg-slate-900 text-white relative overflow-hidden">
+      <section id="team" className="px-8 py-32 text-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
             <div>
@@ -587,7 +605,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="px-8 py-20 bg-white border-t border-slate-100">
+      <footer className="px-8 py-20 border-t border-white/20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
             <div className="max-w-xs">
@@ -634,6 +652,7 @@ function App() {
 
       {/* Zuzu 2.0 Chatbot */}
       <ZuzuChat />
+      </div>
     </div>
   );
 }
